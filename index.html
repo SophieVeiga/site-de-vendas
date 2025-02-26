@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento via Pix</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('/img/19.png'), url('/img/18.jpg'), url('/img/17.png'), url('/img/16.jpg'),
+                        url('/img/16.jpg'), url('/img/15.png'), url('/img/13.png'), url('/img/12.jpg'),
+                        url('/img/11.png'), url('/img/10.jpg');
+            background-size: contain;
+            background-position: center;
+            animation: changeBg 30s infinite;
+        }
+
+        @keyframes changeBg {
+            0% { background-image: url('/img/19.png'); }
+            10% { background-image: url('/img/18.jpg'); }
+            20% { background-image: url('/img/17.png'); }
+            30% { background-image: url('/img/16.jpg'); }
+            40% { background-image: url('/img/15.png'); }
+            50% { background-image: url('/img/13.png'); }
+            60% { background-image: url('/img/12.jpg'); }
+            70% { background-image: url('/img/11.png'); }
+            80% { background-image: url('/img/10.jpg'); }
+            90% { background-image: url('/img/9.png'); }
+            100% { background-image: url('/img/7.png'); }
+        }
+
+        .container {
+            background-color: pink;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 3px solid white;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 50px 0 10px;
+            word-wrap: break-word;
+        }
+
+        .pix-code {
+            display: block;
+            word-break: break-word;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        a{
+            font-size: 30px;
+        }
+    </style>
+    <script>
+        function copyPixCode() {
+            const pixCode = document.getElementById("pix-code").innerText;
+            navigator.clipboard.writeText(pixCode).then(() => {
+                alert("Código Pix copiado!");
+            }).catch(err => {
+                console.error("Erro ao copiar: ", err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="/img/7.png" alt="Foto de Perfil" class="profile-pic">
+        <p>Para efetuar sua compra basta clicar no link abaixo.<br>
+        Após efetuar o pagamento, me envie o comprovante que irei disponibilizar o link do Drive com as fotos e vídeos.</p>
+        <a href="https://tipa.ai/SophieVeiga"><strong>Clica aqui</strong></a>
+    </div>
+</body>
+</html>
