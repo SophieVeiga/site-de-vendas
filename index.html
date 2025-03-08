@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento via Pix</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+        
         body {
             margin: 0;
             padding: 0;
@@ -12,88 +14,100 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: url('19.png'), url('18.jpg'), url('17.png'), url('16.jpg'),
-                        url('16.jpg'), url('15.png'), url('13.png'), url('12.jpg'),
-                        url('11.png'), url('10.jpg');
-            background-size: contain;
-            background-position: center;
-            animation: changeBg 30s infinite;
+            background: black;
+            overflow: hidden;
         }
 
-        @keyframes changeBg {
-            0% { background-image: url('19.png'); }
-            10% { background-image: url('18.jpg'); }
-            20% { background-image: url('17.png'); }
-            30% { background-image: url('16.jpg'); }
-            40% { background-image: url('15.png'); }
-            50% { background-image: url('13.png'); }
-            60% { background-image: url('12.jpg'); }
-            70% { background-image: url('11.png'); }
-            80% { background-image: url('10.jpg'); }
-            90% { background-image: url('9.png'); }
-            100% { background-image: url('7.png'); }
+        .slideshow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            animation: fadeBackground 30s infinite;
+        }
+
+        @keyframes fadeBackground {
+            0%, 100% { background: url('19.png') center/cover no-repeat; }
+            10% { background: url('18.jpg') center/cover no-repeat; }
+            20% { background: url('17.png') center/cover no-repeat; }
+            30% { background: url('16.jpg') center/cover no-repeat; }
+            40% { background: url('15.png') center/cover no-repeat; }
+            50% { background: url('13.png') center/cover no-repeat; }
+            60% { background: url('12.jpg') center/cover no-repeat; }
+            70% { background: url('11.png') center/cover no-repeat; }
+            80% { background: url('10.jpg') center/cover no-repeat; }
+            90% { background: url('9.png') center/cover no-repeat; }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
         }
 
         .container {
-            background-color: pink;
-            padding: 20px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
             width: 90%;
             max-width: 500px;
             position: relative;
-            box-sizing: border-box;
-            word-wrap: break-word;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+            color: white;
+            font-family: 'Playfair Display', serif;
         }
 
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             position: absolute;
-            top: -40px;
+            top: -60px;
             left: 50%;
             transform: translateX(-50%);
-            border: 3px solid white;
+            border: 4px solid white;
         }
 
         p {
-            font-size: 20px;
-            margin: 50px 0 10px;
-            word-wrap: break-word;
+            font-size: 22px;
+            margin-top: 50px;
+            line-height: 1.5;
         }
 
-        .pix-code {
-            display: block;
-            word-break: break-word;
-            font-size: 20px;
-            cursor: pointer;
-            background-color: white;
-            padding: 5px;
-            border-radius: 5px;
+        .btn-purchase {
+            display: inline-block;
+            background: hotpink;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            transition: 0.3s;
         }
-        a{
-            font-size: 30px;
+
+        .btn-purchase:hover {
+            background: deeppink;
+            transform: scale(1.1);
         }
     </style>
-    <script>
-        function copyPixCode() {
-            const pixCode = document.getElementById("pix-code").innerText;
-            navigator.clipboard.writeText(pixCode).then(() => {
-                alert("Código Pix copiado!");
-            }).catch(err => {
-                console.error("Erro ao copiar: ", err);
-            });
-        }
-    </script>
 </head>
 <body>
+    <div class="slideshow"></div>
+    <div class="overlay"></div>
     <div class="container">
         <img src="7.png" alt="Foto de Perfil" class="profile-pic">
-        <p>Para efetuar sua compra basta clicar no link abaixo.<br>
-        Após efetuar o pagamento, o link do Drive com as fotos e vídeos será disponibilizado.</p>
-        <a href="https://tipa.ai/SophieVeiga"><strong>Adquira já o seu</strong></a>
+        <p>Para adquirir meu conteúdo exclusivo, basta clicar no botão abaixo!<br>
+        Após o pagamento, você terá acesso ao Drive com fotos e vídeos sensuais.</p>
+        <a href="https://tipa.ai/SophieVeiga" class="btn-purchase">Adquira já o seu 🔥</a>
     </div>
 </body>
 </html>
